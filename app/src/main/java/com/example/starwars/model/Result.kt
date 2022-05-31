@@ -1,6 +1,15 @@
 package com.example.starwars.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity(
+    tableName = "result_characters"
+)
 data class Result(
+    @PrimaryKey(autoGenerate = true)
+    var id:Int?=null,
     val birth_year: String,
     val created: String,
     val edited: String,
