@@ -1,12 +1,18 @@
 package com.example.starwars.api
 
-import com.example.starwars.model.Result
+import com.example.starwars.model.HomeWorldResponse
 import com.example.starwars.model.Starwars
-import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
+import retrofit2.http.Url
 
-interface StarwarsApi {
+interface ApiService {
 
-    @GET("/people")
-    suspend fun  getCharacters():Response<List<Result>>
+    @GET("people/?page/")
+    suspend fun  getCharacters(@Query("page")page: Int):Starwars
+
+    @GET
+    suspend fun getHomeworld(@Url url:String): HomeWorldResponse
+
+
 }

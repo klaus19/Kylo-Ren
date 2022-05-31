@@ -1,29 +1,29 @@
 package com.example.starwars.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-
-@Entity(
-    tableName = "result_characters"
-)
+@Parcelize
 data class Result(
-    @PrimaryKey(autoGenerate = true)
-    var id:Int?=null,
-    val birth_year: String,
-    val created: String,
-    val edited: String,
-    val eye_color: String,
+    @SerializedName("birth_year")
+    val birthYear: String,
+    @SerializedName("eye_color")
+    val eyeColor: String,
+    @SerializedName("films")
     val films: List<String>,
-    val gender: String?,
-    val hair_color: String,
-    val height: String?,
+    @SerializedName("gender")
+    val gender: String,
+    @SerializedName("hair_color")
+    val hairColor: String,
+    @SerializedName("height")
+    val height: String,
+    @SerializedName("homeworld")
     val homeworld: String,
+    @SerializedName("mass")
     val mass: String,
+    @SerializedName("name")
     val name: String,
-    val skin_color: String,
-    val species: List<String>,
-    val starships: List<String>,
-    val url: String?,
-    val vehicles: List<String>
-)
+    @SerializedName("skin_color")
+    val skinColor: String
+):Parcelable

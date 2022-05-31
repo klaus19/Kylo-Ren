@@ -1,16 +1,33 @@
 package com.example.starwars.repository
 
-import com.example.starwars.api.RetrofitInstance
-import com.example.starwars.api.StarwarsAdapter
-import com.example.starwars.api.StarwarsApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.example.starwars.Utils.CharactersPagingSource
+import com.example.starwars.api.ApiService
 import com.example.starwars.model.Result
-import retrofit2.Response
+import com.example.starwars.model.SafeApiCall
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class StarwarsRepository(private val starwarsApi: StarwarsApi,
-                         private val starwarsAdapter: StarwarsAdapter):Repository {
+class StarwarsRepository @Inject constructor(private val starwarsApi: ApiService) : SafeApiCall() {
 
 
-    suspend fun getCharacters():Response<List<Result>> = RetrofitInstance.api.getCharacters()
+    fun getCharacters(search: String):Flow<PagingData<Result>>{
+        return Pager(
+            config = PagingConfig(
+                pageSize =30,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = {
+                     CharactersPagingSource(starwarsApi,search)
+            }
+        ).flow
+    }
+
+    suspend fun getHomeworld(url:String) = safeApiCall {
+        starwarsApi.getHomeworld(url)
+    }
 
 
 
