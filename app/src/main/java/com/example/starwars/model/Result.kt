@@ -22,7 +22,7 @@ data class Result(
     val homeworld: String,
     @SerializedName("mass")
     val mass: String,
-    @SerializedName("name")
+    @SerializedName("species")
     val name: String,
     @SerializedName("skin_color")
     val skinColor: String
