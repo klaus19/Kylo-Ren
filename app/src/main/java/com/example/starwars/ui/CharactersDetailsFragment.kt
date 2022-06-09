@@ -34,13 +34,13 @@ class CharactersDetailsFragment : Fragment() {
         viewmodel.details.observe(viewLifecycleOwner, Observer { result ->
             with(binding){
                 textViewFullNameValue.text = result.name
-                textViewSkinColorValue.text = result.skinColor
-                binding.textViewHairColorValue.text = result.hairColor
+                textViewSkinColorValue.text = result.skin_color
+                binding.textViewHairColorValue.text = result.hair_color
                 binding.textViewHeightValue.text = result.height
                 binding.textViewMassValue.text = result.mass
-                binding.textViewEyeColorValue.text = result.eyeColor
+                binding.textViewEyeColorValue.text = result.eye_color
                 binding.textViewGenderValue.text = result.gender
-                binding.textViewBirthYearValue.text = result.birthYear
+                binding.textViewBirthYearValue.text = result.birth_year
             }
 
         })

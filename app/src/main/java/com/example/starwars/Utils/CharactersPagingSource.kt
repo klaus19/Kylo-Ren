@@ -7,9 +7,9 @@ import com.example.starwars.model.Result
 
 
 class CharactersPagingSource(private val apiService: ApiService, private val searchString: String) :
-    PagingSource<Int, Result>() {
+    PagingSource<Int, com.example.starwars.model.Result>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Result> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, com.example.starwars.model.Result> {
         val position = params.key ?: 1
         return try {
                 val response = apiService.getCharacters(position)
@@ -23,7 +23,7 @@ class CharactersPagingSource(private val apiService: ApiService, private val sea
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Result>): Int? {
+    override fun getRefreshKey(state: PagingState<Int,Result>): Int? {
         return state.anchorPosition
     }
     }

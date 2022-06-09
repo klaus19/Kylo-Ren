@@ -17,9 +17,9 @@ class StarDetailViewmodel @Inject constructor(private val starwarsRepository: St
       savedStateHandle: SavedStateHandle):
              ViewModel(){
 
-                 private val myArguments = savedStateHandle.get<Result>("character details")
+                 private val myArguments = savedStateHandle.get<com.example.starwars.model.Result>("character details")
 
-         private val _details = MutableLiveData<Result>()
+         private val _details = MutableLiveData<com.example.starwars.model.Result>()
         val details : LiveData<Result>
           get() = _details
 

@@ -1,29 +1,24 @@
 package com.example.starwars.model
 
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+
 
 @Parcelize
 data class Result(
-    @SerializedName("birth_year")
-    val birthYear: String,
-    @SerializedName("eye_color")
-    val eyeColor: String,
-    @SerializedName("films")
+    val birth_year: String,
+    val created: String,
+    val edited: String,
+    val eye_color: String,
     val films: List<String>,
-    @SerializedName("gender")
     val gender: String,
-    @SerializedName("hair_color")
-    val hairColor: String,
-    @SerializedName("height")
+    val hair_color: String,
     val height: String,
-    @SerializedName("homeworld")
     val homeworld: String,
-    @SerializedName("mass")
     val mass: String,
-    @SerializedName("species")
     val name: String,
-    @SerializedName("skin_color")
-    val skinColor: String
-):Parcelable
+    val skin_color: String?,
+    val starships: List<String>?,
+    val url: String?,
+    val vehicles: List<String>?
+) : Parcelable
