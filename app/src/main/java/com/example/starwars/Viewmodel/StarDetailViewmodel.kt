@@ -5,12 +5,14 @@ import com.example.starwars.Utils.Resource
 import com.example.starwars.model.HomeWorldResponse
 import com.example.starwars.model.Result
 import com.example.starwars.repository.StarwarsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class StarDetailViewmodel @Inject constructor(private val starwarsRepository: StarwarsRepository,
       savedStateHandle: SavedStateHandle):
              ViewModel(){
